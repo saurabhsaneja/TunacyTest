@@ -1,10 +1,31 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View, useWindowDimensions } from 'react-native'
+import React, { useState } from 'react'
+import MyButton from '../../components/MyButton'
+import { Colors, MyIcon } from '../../global/Index'
+import Checkbox from '../../components/Checkbox'
+import { getFont } from '../../helpers'
 
+//image is 190 by 251
+//screen is 357 by 812
 const Welcome = ({ navigation }) => {
+  const { width, height } = useWindowDimensions()
+  const [allowStoringPeronalInfo, setAllowStoringPeronalInfo] = useState(false)
+  const [acceptTerms, setAcceptTerms] = useState(false)
   return (
-    <View>
-      <Text>Welcome</Text>
+    <View style={styles.container}>
+      <ScrollView contentContainerStyle={styles.content} >
+        <Image source={require('../../assets/images/logo.jpeg')} style={{ width: 190 / 357 * width, height: 251 / 812 * height, alignSelf: 'center', marginTop: height * 0.15 }} />
+        <View style={{ marginTop: height * 0.15 }} >
+          <MyButton title='Giriş Yap' style={{ marginBottom: 10 }} />
+          <MyButton title='Kayıt Ol' isLight />
+          <View style={{ marginTop: 25 }} />
+          <Checkbox value={allowStoringPeronalInfo} setValue={setAllowStoringPeronalInfo}
+            text={<Text style={styles.checkText}>Supafo’nun e-posta adresimi ve adımı gizlilik politikasına uygun şekilde saklamasına izin
+              veriyorum.</Text>}
+          />
+          <Checkbox value={acceptTerms} setValue={setAcceptTerms} text={<Text style={styles.checkText}><Text style={styles.underline}>Şartlar & Koşullar</Text> ve <Text style={styles.underline}>Gizlilik Politikasını</Text> kabul ediyorum.</Text>} />
+        </View>
+      </ScrollView>
     </View>
   )
 }
@@ -15,5 +36,20 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
+    backgroundColor: Colors.WHITE
+  },
+  content: {
+    // alignItems: 'center',
+  },
+  checkText: {
+    color: Colors.BLACK,
+    fontsize: 14,
+    fontFamily: getFont('R'),
+    marginLeft: 5,
+    flexWrap: 'wrap'
+  },
+  underline: {
+    textDecorationLine: 'underline',
+    color: Colors.GREEN,
   }
 })
