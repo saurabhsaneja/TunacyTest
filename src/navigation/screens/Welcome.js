@@ -13,6 +13,7 @@ const Welcome = ({ navigation }) => {
   const [acceptTerms, setAcceptTerms] = useState(false)
 
   const gotoLogin = () => navigation.navigate(ScreenNames.LOGIN)
+  const gotoSignUp = () => navigation.navigate(ScreenNames.SIGN_UP)
 
   return (
     <View style={styles.container}>
@@ -20,7 +21,7 @@ const Welcome = ({ navigation }) => {
         <Image source={require('../../assets/images/logo.jpeg')} style={{ width: 190 / 357 * width, height: 251 / 812 * height, alignSelf: 'center', marginTop: height * 0.15 }} />
         <View style={{ marginTop: height * 0.15 }} >
           <MyButton title='Giriş Yap' onPress={gotoLogin} style={{ marginBottom: 10 }} />
-          <MyButton title='Kayıt Ol' isLight />
+          <MyButton title='Kayıt Ol' onPress={gotoSignUp} isLight />
           <View style={{ marginTop: 25 }} />
           <Checkbox value={allowStoringPeronalInfo} setValue={setAllowStoringPeronalInfo}
             text={<Text style={styles.checkText}>Supafo’nun e-posta adresimi ve adımı gizlilik politikasına uygun şekilde saklamasına izin

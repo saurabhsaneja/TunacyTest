@@ -5,18 +5,26 @@ import { Colors, MyIcon, ScreenNames } from '../../global/Index'
 import { getFont } from '../../helpers'
 import MyTextInput from '../../components/MyTextInput'
 
-const Login = ({ navigation }) => {
+const SignUp = ({ navigation }) => {
   const { width, height } = useWindowDimensions()
+  const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const gotoSignUp = () => navigation.navigate(ScreenNames.SIGN_UP)
+  const gotoLogin = () => navigation.navigate(ScreenNames.LOGIN)
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.content} >
         <Text style={styles.title}>Giriş Yap</Text>
         <Image source={require('../../assets/images/logo.jpeg')} style={{ width: 79 / 357 * width, height: 104 / 812 * height, alignSelf: 'center', }} />
 
+        <MyTextInput
+          value={name}
+          setValue={setName}
+          placeholder='Ad Soyad'
+          icon={<Image
+            source={require('../../assets/images/email.jpeg')}
+            style={styles.iconStyle} />} style={{ marginBottom: 10 }} />
         <MyTextInput
           value={email}
           setValue={setEmail}
@@ -50,16 +58,16 @@ const Login = ({ navigation }) => {
             <Image source={require('../../assets/images/apple.jpeg')} />
           </View>
           <View style={styles.socialBox}>
-            <Image source={require('../../assets/images/fb.jpeg')} r />
+            <Image source={require('../../assets/images/fb.jpeg')} />
           </View>
         </View>
-        <Text style={styles.checkText}>Hesabınız yok mu? <TouchableOpacity onPress={gotoSignUp}><Text style={styles.underline}>Kayıt Ol</Text></TouchableOpacity></Text>
+        <Text style={styles.checkText}>Hesabınız var mı? <TouchableOpacity onPress={gotoLogin}><Text style={styles.underline}>Giriş Yap</Text></TouchableOpacity></Text>
       </ScrollView>
     </View>
   )
 }
 
-export default Login
+export default SignUp
 
 const styles = StyleSheet.create({
   container: {

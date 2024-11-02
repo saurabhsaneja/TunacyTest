@@ -8,4 +8,4 @@ export const WELCOME = 'WELCOME';
 
 export const LOGIN = 'LOGIN';
 
-export const SIGN_UP = 'WELCOME';
+export const SIGN_UP = 'SIGN_UP';
