@@ -1,7 +1,7 @@
 import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View, useWindowDimensions } from 'react-native'
 import React, { useState } from 'react'
 import MyButton from '../../components/MyButton'
-import { Colors, MyIcon } from '../../global/Index'
+import { Colors, MyIcon, ScreenNames } from '../../global/Index'
 import Checkbox from '../../components/Checkbox'
 import { getFont } from '../../helpers'
 
@@ -11,12 +11,15 @@ const Welcome = ({ navigation }) => {
   const { width, height } = useWindowDimensions()
   const [allowStoringPeronalInfo, setAllowStoringPeronalInfo] = useState(false)
   const [acceptTerms, setAcceptTerms] = useState(false)
+
+  const gotoLogin = () => navigation.navigate(ScreenNames.LOGIN)
+
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.content} >
         <Image source={require('../../assets/images/logo.jpeg')} style={{ width: 190 / 357 * width, height: 251 / 812 * height, alignSelf: 'center', marginTop: height * 0.15 }} />
         <View style={{ marginTop: height * 0.15 }} >
-          <MyButton title='Giriş Yap' style={{ marginBottom: 10 }} />
+          <MyButton title='Giriş Yap' onPress={gotoLogin} style={{ marginBottom: 10 }} />
           <MyButton title='Kayıt Ol' isLight />
           <View style={{ marginTop: 25 }} />
           <Checkbox value={allowStoringPeronalInfo} setValue={setAllowStoringPeronalInfo}
