@@ -14,6 +14,7 @@ const SignUp = ({ navigation }) => {
   const [number, setNumber] = useState('')
 
   const gotoLogin = () => navigation.navigate(ScreenNames.LOGIN)
+  const gotoOneTimePassword = () => navigation.navigate(ScreenNames.ONE_TIME_PASSWORD)
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.content} >
@@ -67,7 +68,7 @@ const SignUp = ({ navigation }) => {
           />}
         />
         <Text style={styles.forgot}>Şifreni mi unuttun?</Text>
-        <MyButton title='Giriş Yap' style={{ marginTop: 30 }} />
+        <MyButton title='Giriş Yap' onPress={gotoOneTimePassword} style={{ marginTop: 30 }} />
         <View style={styles.orContainer}>
           <View style={styles.line} />
           <Text style={styles.or}>VEYA</Text>
