@@ -69,8 +69,8 @@ const WelcomeModal = ({ visible, setVisibility, welcomeTextModalType, openWelcom
             <Text style={styles.readMore}>Devamını Oku</Text>
             <Image source={require('../assets/images/right.jpeg')} />
           </TouchableOpacity>
-          <MyButton title='Hepsine İzin Ver' style={{ marginBottom: 10, marginTop: 20 }} />
-          <MyButton title='Seçime İzin ver' />
+          <MyButton title='Hepsine İzin Ver' style={{ marginBottom: 10, marginTop: 20 }} onPress={closeModal} />
+          <MyButton title='Seçime İzin ver' onPress={closeModal} />
         </View>
       </View>
     </Modal>
