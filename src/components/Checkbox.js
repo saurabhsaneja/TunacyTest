@@ -23,6 +23,6 @@ export default Checkbox
 const styles = StyleSheet.create({
   view: {
     flexDirection: 'row',
-    // alignItems: 'center'
+    alignItems: 'center'
   }
 })

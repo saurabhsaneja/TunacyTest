@@ -36,14 +36,27 @@ const Welcome = ({ navigation }) => {
             text={<Text style={styles.checkText}>Supafo’nun e-posta adresimi ve adımı gizlilik politikasına uygun şekilde saklamasına izin
               veriyorum.</Text>}
           />
-          <Checkbox value={acceptTerms} setValue={setAcceptTerms} text={<Text style={styles.checkText}><TouchableOpacity
-            onPress={() => {
-              openModal()
-              setModalTextType('terms')
-            }}><Text style={styles.underline}>Şartlar & Koşullar</Text></TouchableOpacity> ve <TouchableOpacity onPress={() => {
-              openModal()
-              setModalTextType('privacy')
-            }}><Text style={styles.underline}>Gizlilik Politikasını</Text></TouchableOpacity> kabul ediyorum.</Text>} />
+          <Checkbox value={acceptTerms} setValue={setAcceptTerms} text={
+            <View style={styles.textRow}>
+              <Text style={styles.checkText}></Text>
+
+              <TouchableOpacity onPress={() => {
+                openModal()
+                setModalTextType('terms')
+              }}>
+                <Text style={styles.underline}>Şartlar & Koşullar</Text>
+              </TouchableOpacity>
+
+              <Text> ve </Text>
+              <TouchableOpacity onPress={() => {
+                openModal()
+                setModalTextType('privacy')
+              }}>
+                <Text style={styles.underline}>Gizlilik Politikasını</Text></TouchableOpacity>
+              <Text> kabul ediyorum.</Text>
+            </View>
+          }
+          />
         </View>
       </ScrollView>
       <Terms visible={showModal} setVisibility={setShowModal} textModalType={textModalType} />
@@ -69,12 +82,16 @@ const styles = StyleSheet.create({
   content: {
     // alignItems: 'center',
   },
+  textRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+  },
   checkText: {
     color: Colors.BLACK,
-    fontsize: 14,
+    fontSize: 14,
     fontFamily: getFont('R'),
     marginLeft: 5,
-    flexWrap: 'wrap'
   },
   underline: {
     textDecorationLine: 'underline',
