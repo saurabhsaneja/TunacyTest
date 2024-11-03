@@ -63,7 +63,7 @@ export default MyTextInput
 
 const styles = StyleSheet.create({
   inputContainer: {
-    height: 36,
+    // height: 36,
     borderWidth: 1,
     borderColor: Colors.LIGHT_GREY,
     backgroundColor: Colors.WHITE,
@@ -84,6 +84,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontFamily: getFont('R'),
     color: Colors.BLACK,
+    width: '75%'
   },
   title: {
     fontSize: 14,

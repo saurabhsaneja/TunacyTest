@@ -26,7 +26,7 @@ const TermsConsent = ({ visible, setVisibility }) => {
           <Image source={require('../assets/images/logo.jpeg')} style={{ width: 47 / 357 * width, height: 61 / 812 * height, alignSelf: 'center', marginBottom: 10 }} />
           <Text style={styles.title}>Şartlar ve Gizlilik Onayı</Text>
           <Text style={styles.text}>Devam etmeden önce, Şartlar ve Koşullar ile Gizlilik Politikası’nı kabul ettiğinizden emin olun. Bu, size en iyi deneyimi sunmamız için gereklidir.</Text>
-          <MyButton title='Anladım' />
+          <MyButton title='Anladım' onPress={closeModal} />
         </View>
       </View>
     </Modal>

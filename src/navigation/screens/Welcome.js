@@ -42,7 +42,7 @@ const Welcome = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.content} >
-        <Image source={require('../../assets/images/logo.jpeg')} style={{ width: 190 / 357 * width, height: 266 / 812 * height, alignSelf: 'center', marginTop: height * 0.15 }} />
+        <Image source={require('../../assets/images/logo.jpeg')} style={{ width: 190 / 357 * width, height: 266 / 820 * height, alignSelf: 'center', marginTop: height * 0.15 }} />
         <View style={{ marginTop: height * 0.15 }} >
           <MyButton title='Giriş Yap' onPress={gotoLogin} style={{ marginBottom: 10 }} />
           <MyButton title='Kayıt Ol' onPress={gotoSignUp} isLight />

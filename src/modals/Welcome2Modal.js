@@ -24,7 +24,8 @@ const Welcome2Modal = ({ visible, setVisibility, textModalType, close2 }) => {
         <TouchableOpacity style={styles.blurView} onPress={closeModal} />
         <View style={[styles.mainView, { paddingBottom: height * 0.55 }]}>
           <View style={styles.headerContainer}>
-            <TouchableOpacity onPress={closeModal}>
+            <TouchableOpacity onPress={closeModal} hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+            >
               <Image source={require('../assets/images/arrow-left-blue.jpeg')} />
             </TouchableOpacity>
             <Text style={styles.title}>{welcomeReadMoreText[textModalType]?.title}</Text>
