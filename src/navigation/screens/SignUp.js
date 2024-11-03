@@ -19,7 +19,7 @@ const SignUp = ({ navigation }) => {
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.content} >
         <Text style={styles.title}>Giriş Yap</Text>
-        <Image source={require('../../assets/images/logo.jpeg')} style={{ width: 79 / 357 * width, height: 104 / 812 * height, alignSelf: 'center', }} />
+        <Image source={require('../../assets/images/logo.jpeg')} style={{ width: 79 / 357 * width, height: 112 / 812 * height, alignSelf: 'center', }} />
 
         <MyTextInput
           value={name}
