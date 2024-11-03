@@ -52,8 +52,9 @@ const WelcomeModal = ({ visible, setVisibility, welcomeTextModalType, openWelcom
             <MySwitch />
           </View>
           <Text style={styles.text}>{welcomeText['cookies']?.text}</Text>
-          <TouchableOpacity onPress={() => { openWelcome2(); setModalTextType('cookies') }}>
+          <TouchableOpacity onPress={() => { openWelcome2(); setModalTextType('cookies') }} style={styles.readMoreView}>
             <Text style={styles.readMore}>Devamını Oku</Text>
+            <Image source={require('../assets/images/right.jpeg')} />
           </TouchableOpacity>
 
           <View style={[styles.switchContainer, { marginTop: 15 }]} >
@@ -64,8 +65,9 @@ const WelcomeModal = ({ visible, setVisibility, welcomeTextModalType, openWelcom
             <MySwitch2 />
           </View>
           <Text style={styles.text}>{welcomeText['optionalCookies']?.text}</Text>
-          <TouchableOpacity onPress={() => { openWelcome2(); setModalTextType('optionalCookies') }}>
+          <TouchableOpacity onPress={() => { openWelcome2(); setModalTextType('optionalCookies') }} style={styles.readMoreView}>
             <Text style={styles.readMore}>Devamını Oku</Text>
+            <Image source={require('../assets/images/right.jpeg')} />
           </TouchableOpacity>
           <MyButton title='Hepsine İzin Ver' style={{ marginBottom: 10, marginTop: 20 }} />
           <MyButton title='Seçime İzin ver' />
@@ -128,11 +130,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between'
   },
+  readMoreView: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 7,
+  },
   readMore: {
     fontSize: 12,
     fontFamily: getFont('SM'),
     color: Colors.GREEN,
-    marginTop: 7
+    marginRight: 5
   },
 
 })
