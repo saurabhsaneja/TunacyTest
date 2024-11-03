@@ -6,6 +6,7 @@ import Checkbox from '../../components/Checkbox'
 import { getFont } from '../../helpers'
 import Terms from '../../modals/Terms'
 import WelcomeModal from '../../modals/WelcomeModal'
+import Welcome2Modal from '../../modals/Welcome2Modal'
 
 //image is 190 by 251
 //screen is 357 by 812
@@ -15,6 +16,7 @@ const Welcome = ({ navigation }) => {
   const [acceptTerms, setAcceptTerms] = useState(false)
   const [showModal, setShowModal] = useState(false)
   const [showWelcomeModal, setShowWelcomeModal] = useState(true)
+  const [showWelcome2Modal, setShowWelcome2Modal] = useState(false)
   const [textModalType, setModalTextType] = useState('')
   const [welcomeTextModalType, setWelcomeModalTextType] = useState('')
 
@@ -45,7 +47,13 @@ const Welcome = ({ navigation }) => {
         </View>
       </ScrollView>
       <Terms visible={showModal} setVisibility={setShowModal} textModalType={textModalType} />
-      <WelcomeModal visible={showWelcomeModal} setVisibility={setShowWelcomeModal} welcomeTextModalType={welcomeTextModalType} />
+      <WelcomeModal visible={showWelcomeModal} setVisibility={setShowWelcomeModal} welcomeTextModalType={welcomeTextModalType} openWelcome2={() => {
+        setShowWelcomeModal(false)
+        setShowWelcome2Modal()
+      }}
+        setModalTextType={setModalTextType}
+      />
+      <Welcome2Modal visible={showWelcome2Modal} setVisibility={setShowWelcome2Modal} welcomeTextModalType={welcomeTextModalType} textModalType={textModalType} close2={() => setShowWelcomeModal(true)} />
     </View>
   )
 }

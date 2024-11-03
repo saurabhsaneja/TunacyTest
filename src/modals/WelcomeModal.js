@@ -5,7 +5,7 @@ import { Colors } from '../global/Index';
 import { getFont, welcomeText } from '../helpers';
 import MyButton from '../components/MyButton';
 
-const WelcomeModal = ({ visible, setVisibility, welcomeTextModalType }) => {
+const WelcomeModal = ({ visible, setVisibility, welcomeTextModalType, openWelcome2, setModalTextType }) => {
   const [isCookiesEnabled, setIsCookiesEnabled] = useState(false);
   const [isOptCookiesEnabled, setIsOptCookiesEnabled] = useState(false);
   const toggleCookiesSwitch = () => setIsCookiesEnabled(previousState => !previousState);
@@ -52,7 +52,7 @@ const WelcomeModal = ({ visible, setVisibility, welcomeTextModalType }) => {
             <MySwitch />
           </View>
           <Text style={styles.text}>{welcomeText['cookies']?.text}</Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => { openWelcome2(); setModalTextType('cookies') }}>
             <Text style={styles.readMore}>Devamını Oku</Text>
           </TouchableOpacity>
 
@@ -64,7 +64,7 @@ const WelcomeModal = ({ visible, setVisibility, welcomeTextModalType }) => {
             <MySwitch2 />
           </View>
           <Text style={styles.text}>{welcomeText['optionalCookies']?.text}</Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => { openWelcome2(); setModalTextType('optionalCookies') }}>
             <Text style={styles.readMore}>Devamını Oku</Text>
           </TouchableOpacity>
           <MyButton title='Hepsine İzin Ver' style={{ marginBottom: 10, marginTop: 20 }} />
@@ -132,6 +132,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontFamily: getFont('SM'),
     color: Colors.GREEN,
+    marginTop: 7
   },
 
 })
