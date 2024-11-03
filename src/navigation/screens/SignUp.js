@@ -44,7 +44,7 @@ const SignUp = ({ navigation }) => {
             keyboardType='number-pad'
             centerTextInput
             style={{ flex: 1 }}
-            />
+          />
           <View style={{ flex: 0.18 }} />
           <MyTextInput
             value={number}
@@ -85,7 +85,9 @@ const SignUp = ({ navigation }) => {
             <Image source={require('../../assets/images/fb.jpeg')} />
           </View>
         </View>
-        <Text style={styles.checkText}>Hesabınız var mı? <TouchableOpacity onPress={gotoLogin}><Text style={styles.underline}>Giriş Yap</Text></TouchableOpacity></Text>
+        <View style={styles.textRow}>
+          <Text style={styles.checkText}>Hesabınız var mı? </Text><TouchableOpacity onPress={gotoLogin}><Text style={styles.underline}>Giriş Yap</Text></TouchableOpacity>
+        </View>
       </ScrollView>
     </View>
   )
@@ -168,5 +170,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between'
-  }
+  },
+  textRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+    alignSelf: 'center'
+  },
 })

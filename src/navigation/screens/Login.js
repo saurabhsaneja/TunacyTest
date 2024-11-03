@@ -54,7 +54,9 @@ const Login = ({ navigation }) => {
             <Image source={require('../../assets/images/fb.jpeg')} r />
           </View>
         </View>
-        <Text style={styles.checkText}>Hesabınız yok mu? <TouchableOpacity onPress={gotoSignUp}><Text style={styles.underline}>Kayıt Ol</Text></TouchableOpacity></Text>
+        <View style={styles.textRow}>
+          <Text style={styles.checkText}>Hesabınız yok mu? </Text><TouchableOpacity onPress={gotoSignUp}><Text style={styles.underline}>Kayıt Ol</Text></TouchableOpacity>
+        </View>
       </ScrollView>
     </View>
   )
@@ -132,5 +134,11 @@ const styles = StyleSheet.create({
   underline: {
     textDecorationLine: 'underline',
     color: Colors.GREEN,
-  }
+  },
+  textRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+    alignSelf: 'center'
+  },
 })
