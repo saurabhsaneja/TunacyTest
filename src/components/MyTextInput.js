@@ -3,13 +3,13 @@ import React, { useState } from 'react'
 import { Colors, MyIcon } from '../global/Index'
 import { getFont } from '../helpers'
 
-const MyTextInput = ({ value, setValue, placeholder, myRef, icon, style, hideUnhide = false, secureTextEntry = false }) => {
+const MyTextInput = ({ value, setValue, placeholder, title, myRef, icon, style, hideUnhide = false, secureTextEntry = false, inLeftStyle, keyboardType, maxLength, centerTextInput = false }) => {
   const [isHidden, setIsHidden] = useState(secureTextEntry)
   return (
     <View style={[style]} >
-      <Text style={styles.title}>{placeholder}</Text>
-      <View style={styles.inputContainer}>
-        <View style={styles.inputLeftContainer}>
+      <Text style={styles.title}>{title || placeholder}</Text>
+      <View style={[styles.inputContainer, centerTextInput ? { justifyContent: 'center' } : null]}>
+        <View style={[styles.inputLeftContainer]}>
           {icon}
           <TextInput
             ref={myRef}
@@ -17,8 +17,10 @@ const MyTextInput = ({ value, setValue, placeholder, myRef, icon, style, hideUnh
             secureTextEntry={isHidden}
             onChangeText={setValue}
             placeholder={placeholder}
+            keyboardType={keyboardType}
+            maxLength={maxLength}
             placeholderTextColor='rgba(0,0,0,0.5)'
-            style={styles.input}
+            style={[styles.input, inLeftStyle]}
           />
         </View>
         {hideUnhide ?
@@ -81,7 +83,7 @@ const styles = StyleSheet.create({
     height: 36,
     fontSize: 12,
     fontFamily: getFont('R'),
-    color: Colors.BLACK
+    color: Colors.BLACK,
   },
   title: {
     fontSize: 14,

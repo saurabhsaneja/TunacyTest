@@ -10,6 +10,8 @@ const SignUp = ({ navigation }) => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [country, setCountry] = useState('')
+  const [number, setNumber] = useState('')
 
   const gotoLogin = () => navigation.navigate(ScreenNames.LOGIN)
   return (
@@ -32,6 +34,27 @@ const SignUp = ({ navigation }) => {
           icon={<Image
             source={require('../../assets/images/email.jpeg')}
             style={styles.iconStyle} />} style={{ marginBottom: 10 }} />
+        <View style={styles.phoneNumberView}>
+          <MyTextInput
+            value={country}
+            setValue={setCountry}
+            title='Ülke'
+            placeholder='+90'
+            keyboardType='number-pad'
+            centerTextInput
+            style={{ flex: 1 }}
+            />
+          <View style={{ flex: 0.18 }} />
+          <MyTextInput
+            value={number}
+            setValue={setNumber}
+            title='Telefon Numarası'
+            placeholder='123 455 67 88'
+            keyboardType='number-pad'
+            maxLength={10}
+            style={{ flex: 2.5 }}
+          />
+        </View>
         <MyTextInput
           value={password}
           setValue={setPassword}
@@ -139,5 +162,10 @@ const styles = StyleSheet.create({
   underline: {
     textDecorationLine: 'underline',
     color: Colors.GREEN,
+  },
+  phoneNumberView: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between'
   }
 })
