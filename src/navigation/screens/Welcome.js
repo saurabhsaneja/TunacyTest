@@ -4,6 +4,8 @@ import MyButton from '../../components/MyButton'
 import { Colors, MyIcon, ScreenNames } from '../../global/Index'
 import Checkbox from '../../components/Checkbox'
 import { getFont } from '../../helpers'
+import Terms from '../../modals/Terms'
+import WelcomeModal from '../../modals/WelcomeModal'
 
 //image is 190 by 251
 //screen is 357 by 812
@@ -11,9 +13,14 @@ const Welcome = ({ navigation }) => {
   const { width, height } = useWindowDimensions()
   const [allowStoringPeronalInfo, setAllowStoringPeronalInfo] = useState(false)
   const [acceptTerms, setAcceptTerms] = useState(false)
+  const [showModal, setShowModal] = useState(false)
+  const [showWelcomeModal, setShowWelcomeModal] = useState(true)
+  const [textModalType, setModalTextType] = useState('')
+  const [welcomeTextModalType, setWelcomeModalTextType] = useState('')
 
   const gotoLogin = () => navigation.navigate(ScreenNames.LOGIN)
   const gotoSignUp = () => navigation.navigate(ScreenNames.SIGN_UP)
+  const openModal = () => setShowModal(true)
 
   return (
     <View style={styles.container}>
@@ -27,9 +34,18 @@ const Welcome = ({ navigation }) => {
             text={<Text style={styles.checkText}>Supafo’nun e-posta adresimi ve adımı gizlilik politikasına uygun şekilde saklamasına izin
               veriyorum.</Text>}
           />
-          <Checkbox value={acceptTerms} setValue={setAcceptTerms} text={<Text style={styles.checkText}><Text style={styles.underline}>Şartlar & Koşullar</Text> ve <Text style={styles.underline}>Gizlilik Politikasını</Text> kabul ediyorum.</Text>} />
+          <Checkbox value={acceptTerms} setValue={setAcceptTerms} text={<Text style={styles.checkText}><TouchableOpacity
+            onPress={() => {
+              openModal()
+              setModalTextType('terms')
+            }}><Text style={styles.underline}>Şartlar & Koşullar</Text></TouchableOpacity> ve <TouchableOpacity onPress={() => {
+              openModal()
+              setModalTextType('privacy')
+            }}><Text style={styles.underline}>Gizlilik Politikasını</Text></TouchableOpacity> kabul ediyorum.</Text>} />
         </View>
       </ScrollView>
+      <Terms visible={showModal} setVisibility={setShowModal} textModalType={textModalType} />
+      <WelcomeModal visible={showWelcomeModal} setVisibility={setShowWelcomeModal} welcomeTextModalType={welcomeTextModalType} />
     </View>
   )
 }
