@@ -32,7 +32,7 @@ const Login = ({ navigation }) => {
           secureTextEntry
           hideUnhide
           icon={<Image
-            source={require('../../assets/images/email.jpeg')}
+            source={require('../../assets/images/lock.jpeg')}
             style={styles.iconStyle}
           />}
         />

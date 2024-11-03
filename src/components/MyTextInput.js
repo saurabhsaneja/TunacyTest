@@ -74,13 +74,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10
   },
   inputLeftContainer: {
-    // height: 36,
+    height: 36,
     flexDirection: 'row',
     alignItems: 'center',
     borderRadius: 15,
   },
   input: {
-    height: 36,
+    // height: 36,
     fontSize: 12,
     fontFamily: getFont('R'),
     color: Colors.BLACK,
